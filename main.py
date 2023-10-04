@@ -108,24 +108,28 @@ class Weight(ctk.CTkFrame):
     def max_decrease(self):
         value = self.weight_float.get()
         value -= 1
+        if value < 0: value = 0
         self.weight_float.set(value)
         self.weight.configure(text=f"{round(self.weight_float.get() * 10) / 10}kg")
 
     def min_decrease(self):
         value = self.weight_float.get()
         value -= 0.1
+        if value < 0: value = 0
         self.weight_float.set(value)
         self.weight.configure(text=f"{round(self.weight_float.get() * 10) / 10}kg")
 
     def min_increase(self):
         value = self.weight_float.get()
         value += 0.1
+        if value > 300: value = 0
         self.weight_float.set(value)
         self.weight.configure(text=f"{round(self.weight_float.get() * 10) / 10}kg")
 
     def max_increase(self):
         value = self.weight_float.get()
         value += 1
+        if value > 300: value = 0
         self.weight_float.set(value)
         self.weight.configure(text=f"{round(self.weight_float.get() * 10) / 10}kg")
 
